@@ -4,6 +4,7 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   SET_VISIBILITY_FILTER,
+  INCREMENT_COUNTER,
   VisibilityFilters
 } from '../actions'
 const { SHOW_ALL } = VisibilityFilters
@@ -15,6 +16,12 @@ function visibilityFilter(state = SHOW_ALL, action) {
     default:
       return state
   }
+}
+
+const counter = (state = 1, action) => {
+  console.log('action => ', action);
+  
+  return state;
 }
 
 function todos(state = [], action) {
@@ -43,7 +50,8 @@ function todos(state = [], action) {
 
 const todoApp = combineReducers({
   visibilityFilter,
-  todos
+  todos,
+  counter
 })
 
 export default todoApp

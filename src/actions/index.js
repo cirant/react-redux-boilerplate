@@ -5,6 +5,7 @@
 export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
 
 /*
  * other constants
@@ -19,6 +20,10 @@ export const VisibilityFilters = {
 /*
  * action creators
  */
+
+export function incrementCounter(number) {
+  return { type: INCREMENT_COUNTER, number }
+}
 
 export function addTodo(text) {
   return { type: ADD_TODO, text }

@@ -1,12 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo, incrementCounter } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, counter }) => {
   let input
 
+  console.log('=========================', counter);
+  
+  const xxx = () => {
+    console.log('hola mundo');
+    incrementCounter(2)
+  }
   return (
     <div>
+      counter: {counter} 
+
+      <button onClick={xxx}>click</button>
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -27,6 +36,13 @@ let AddTodo = ({ dispatch }) => {
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
+
+const mapStateToProps = state => {
+  return {
+    counter: state.counter
+  }
+}
+
+AddTodo = connect(mapStateToProps)(AddTodo)
 
 export default AddTodo
